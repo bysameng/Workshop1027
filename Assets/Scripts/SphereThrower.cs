@@ -1,9 +1,19 @@
 using UnityEngine;
 using System.Collections;
 
+//throws spheres!
 public class SphereThrower : MonoBehaviour 
 {
+	//this field will show up in the inspector since
+	//a) its type (gameobject) is supported by Unity's inspector 
+	//b) it's a public field (private fields won't show up)
 	public GameObject sphereObject;
+
+	//other field types that work: try them out:
+	//float, int, string, Color, Transform, or ANY SCRIPT TYPE!
+	//for example, these will show up in the inspector.
+//	public float speed;
+//	public Light myLight;
 
 	// Use this for initialization
 	void Start () {
@@ -31,8 +41,10 @@ public class SphereThrower : MonoBehaviour
 			//then let's throw it by adding force
 			Vector3 force; //declaring a new variable that holds a vector3
 			force = this.transform.forward * 3000f;
-			sphereInstance.rigidbody.AddForce(force);
-			Destroy(sphereInstance, 10f);
+			sphereInstance.rigidbody.AddForce(force); //add that force to its rigidbody!
+
+			//destroy the sphere in 10 seconds
+//			Destroy(sphereInstance, 10f);
 		}
 		Vector3 movement = new Vector3(0, 0, 0);
 
